@@ -1,0 +1,43 @@
+# Ignore virtual environments
+env1/
+venv/
+.env/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# VS Code settings
+.vscode/
+*.code-workspace
+
+# macOS system files
+.DS_Store
+
+# Jupyter notebooks checkpoints (if you add notebooks later)
+.ipynb_checkpoints/
+
+# Streamlit specific
+.streamlit/
+
+# Logs
+*.log
+
+# Build / Packaging
+build/
+dist/
+*.egg-info/
+
+# Virtual environment
+env1/
+
+# Environment variables
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+

@@ -1,0 +1,11 @@
+Disease,Symptoms,Description,Medicines,Consultation
+Common Cold,"Runny nose, Sneezing, Sore throat, Mild fever",A mild viral infection of the upper respiratory tract.,"Paracetamol, Antihistamines",Consult a general physician if symptoms persist beyond 7 days.
+Influenza (Flu),"High fever, Body aches, Fatigue, Cough, Chills",A contagious viral infection of the respiratory tract.,"Paracetamol, Oseltamivir (if prescribed)",Consult a doctor if fever is above 102°F or persists beyond 3 days.
+Migraine,"Severe headache, Sensitivity to light, Nausea, Vomiting","A neurological condition causing recurring, intense headaches.","Pain relievers (Ibuprofen, Paracetamol)",Consult a neurologist if headaches are frequent or disabling.
+Asthma,"Shortness of breath, Wheezing, Chest tightness, Coughing",A chronic lung disease that inflames and narrows the airways.,"Inhalers (Salbutamol, Steroids if prescribed)",Consult a pulmonologist for long-term management.
+Diabetes,"Frequent urination, Excessive thirst, Fatigue, Blurred vision",A chronic condition affecting blood sugar regulation.,"Metformin (if prescribed), Lifestyle changes",Consult an endocrinologist for management.
+Hypertension,"Headache, Dizziness, Nosebleeds, Chest pain",A condition where blood pressure is consistently too high.,"Amlodipine, Atenolol (if prescribed)",Consult a cardiologist for regular monitoring.
+Pneumonia,"High fever, Chest pain, Cough with phlegm, Shortness of breath",An infection that inflames the air sacs in one or both lungs.,"Antibiotics (if bacterial), Paracetamol",Consult a physician immediately if severe symptoms appear.
+Tuberculosis,"Persistent cough, Weight loss, Night sweats, Fever",A bacterial infection that mainly affects the lungs.,Anti-TB drugs (as prescribed by doctor),Consult a pulmonologist immediately.
+Anemia,"Fatigue, Pale skin, Shortness of breath, Dizziness",A condition in which the body lacks healthy red blood cells.,"Iron supplements, Folic acid",Consult a general physician for diagnosis and treatment.
+COVID-19,"Fever, Dry cough, Loss of taste or smell, Fatigue",A viral infection caused by SARS-CoV-2.,"Paracetamol, Supportive care, Rest",Consult a physician and follow local health guidelines.
