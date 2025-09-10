@@ -6,17 +6,13 @@ from utils.web_search import web_search
 from utils.rag import retrieve, truncate_text
 from models.llm import get_chatgroq_model
 
-# -----------------------
-# Setup
-# -----------------------
 st.set_page_config(**PAGE_CONFIG)
 Config.validate_config()
 
-# Load medical and doctor data once
 if "medical_df" not in st.session_state:
     st.session_state.medical_df = load_medical_data()
 if "doctors" not in st.session_state:
-    st.session_state.doctors = load_doctor_data()  # Must be a list of dicts with diseases field
+    st.session_state.doctors = load_doctor_data()  
 
 # Initialize chat history
 if "chat_history" not in st.session_state:
@@ -24,23 +20,18 @@ if "chat_history" not in st.session_state:
 if "stop_generating" not in st.session_state:
     st.session_state.stop_generating = False
 
-# -----------------------
 # UI
-# -----------------------
 st.title("🏥 HealthBot - AI Medical Assistant")
 
-# Sidebar settings
 mode = st.sidebar.radio("Response Style:", ["Concise", "Detailed"])
 use_web = st.sidebar.checkbox("Enable Web Search", value=True)
 
-# Display previous chat messages
 for chat in st.session_state.chat_history:
     with st.chat_message(chat["role"]):
         st.markdown(chat["content"])
 
-# -----------------------
 # User input
-# -----------------------
+
 if prompt := st.chat_input("💬 Ask about symptoms or health queries..."):
 
     st.session_state.chat_history.append({"role": "user", "content": prompt})
@@ -55,9 +46,7 @@ if prompt := st.chat_input("💬 Ask about symptoms or health queries..."):
 
         response_parts = []
 
-        # -----------------------
-        # 1️⃣ Symptom matcher
-        # -----------------------
+        # Symptom matcher
         matches = match_symptoms(prompt, st.session_state.medical_df)
         if matches:
             for disease in matches:
@@ -85,9 +74,7 @@ if prompt := st.chat_input("💬 Ask about symptoms or health queries..."):
                 else:
                     response_parts.append("👨‍⚕️ Doctor: No specialist found for this condition.")
 
-        # -----------------------
-        # 2️⃣ RAG knowledge retrieval
-        # -----------------------
+        #  RAG knowledge retrieval
         rag_docs = retrieve(prompt)
         if rag_docs:
             if mode == "Detailed":
@@ -101,9 +88,6 @@ if prompt := st.chat_input("💬 Ask about symptoms or health queries..."):
                     first_sentence = doc.split(".")[0]
                     response_parts.append(f"- {first_sentence}.")
 
-        # -----------------------
-        # 3️⃣ Web search fallback
-        # -----------------------
         if use_web:
             results = web_search(prompt)
             if results:
@@ -116,16 +100,10 @@ if prompt := st.chat_input("💬 Ask about symptoms or health queries..."):
                     for r in results[:3]:  # limit in concise mode
                         response_parts.append(f"- {r}")
 
-        # -----------------------
-        # 4️⃣ Disclaimer
-        # -----------------------
         response_parts.append(
             "⚠️ *This information is for educational purposes only. Please consult a licensed doctor for medical advice.*"
         )
 
-        # -----------------------
-        # 5️⃣ Typing effect
-        # -----------------------
         bot_reply = "\n\n".join(response_parts)
         typed_text = ""
         for char in bot_reply:
